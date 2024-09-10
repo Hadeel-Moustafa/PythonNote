@@ -14,6 +14,21 @@ import seaborn as sns
 sns.set()
 
 
+
+# ================== Important SQL Commands:
+SELECT - extracts data from a database
+UPDATE - updates data in a database
+DELETE - deletes data from a database
+INSERT INTO - inserts new data into a database
+CREATE DATABASE - creates a new database
+ALTER DATABASE - modifies a database
+CREATE TABLE - creates a new table
+ALTER TABLE - modifies a table
+DROP TABLE - deletes a table
+CREATE INDEX - creates an index (search key)
+DROP INDEX - deletes an index
+
+
 # ==================  Methods:
 # Load: 
 df_shootings = pd.read_csv('shootings.csv')
@@ -272,7 +287,7 @@ clean_transactions\
 
 
 
-# NAME
+# ================== NAME:
 
 """
 Gives the name that start with b 
@@ -295,7 +310,7 @@ REGEXP '[gim]e' the name includes ge,ie or me
 
 """
 
-# MATH
+# ================== MATH:
 """ 
 points >1000 and points<3000 
 the same as 
@@ -313,7 +328,22 @@ Limit 6,3 don’t show the first 6 and give the next three so 7-9
 """
 
 
-# ADD DATA
+"""
+It gives the number of different countries
+SELECT DISTINCT Country FROM Customers
+"""
+
+"""
+By using the DISTINCT keyword in a function called COUNT, we can return the number of different countries.
+SELECT COUNT(DISTINCT Country) FROM Customers;
+"""
+
+"""
+Sort the products from highest to lowest price:
+ORDER BY Price DESC;
+"""
+
+# ================== ADD/EXISTS DATA:
 """
 Insert into products (name, quantity_in_stock, unit)
 Values ('product1', 10, 6)
@@ -331,10 +361,31 @@ from orders
 Where order_date < '1990-01-01'
 """
 
-# UpDATE DATA 
+"""
+The following SQL statement lists the number of customers in each country. Only include countries with more than 5 customers:
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+"""
+
+"""
+The EXISTS operator is used to test for the existence of any record in a subquery.
+
+SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition)
+"""
+# ================== UpDATE/DELETE DATA:
 
 """
 Update invoices 
 Set payment_total = 10, payment_date= '2019-01-01'
 Where invoice_id =1
+"""
+
+"""
+DELETE Statement
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste'
 """
